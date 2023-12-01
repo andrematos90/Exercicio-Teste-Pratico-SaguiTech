@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de Nota Fiscal de Serviço</title>
+</head>
+<body>
+    <div class="container-geral">
+        <div class="container-calculadora">
+            <h2 style="color: #fff;">Calculadora de Nota Fiscal de Serviço</h2>
+            <br>
+
+            <!-- formulário para entrada de dados -->
+            <form id="formulario">
+                <ul>
+                    <li>
+                        <label for="nome">Nome do Cliente:</label>
+                        <input type="text" id="nome" required>
+                    </li>
+                    <li>
+                        <label for="valorServico">Valor do Serviço:</label>
+                        <input type="number" id="valorServico" required>
+                    </li>
+                    <li>
+                        <label for="aliquota">Alíquota de Imposto (%):</label>
+                        <input type="number" id="aliquota" required>
+                    </li>
+                </ul>
+                <button type="button" onclick="calcularNotaFiscal()">Calcular Nota Fiscal</button>
+            </form>
+        </div>
+
+        <!-- div que exibe nota fiscal -->
+        <div id="notaFiscal">
+            <h2>Nota Fiscal</h2>
+            <p><strong>Cliente:</strong> <span id="cliente"></span></p>
+            <p><strong>Valor do Serviço:</strong> R$ <span id="valorServicoNota"></span></p>
+            <p><strong>Alíquota de Imposto:</strong> <span id="aliquotaNota"></span>%</p>
+            <p><strong>Imposto Calculado:</strong> R$ <span id="impostoCalculado"></span></p>
+            <p><strong>Total a Pagar:</strong> R$ <span id="totalPagar"></span></p>
+        </div>
+    </div>
+
+
+    <script>
+        // função para calcular e exibir a nota fiscal
+        function calcularNotaFiscal() {
+            // Obtem dados do formulário
+            var nomeCliente = document.getElementById('nome').value;
+            var valorServico = parseFloat(document.getElementById('valorServico').value);
+            var aliquota = parseFloat(document.getElementById('aliquota').value);
+
+            // calcular imposto
+            var impostoCalculado = (valorServico * (aliquota / 100)).toFixed(2);
+
+            // calcular total a pagar
+            var totalPagar = (valorServico + parseFloat(impostoCalculado)).toFixed(2);
+
+            // atualiza elementos da nota fiscal na página
+            document.getElementById('cliente').innerText = nomeCliente;
+            document.getElementById('valorServicoNota').innerText = valorServico.toFixed(2);
+            document.getElementById('aliquotaNota').innerText = aliquota;
+            document.getElementById('impostoCalculado').innerText = impostoCalculado;
+            document.getElementById('totalPagar').innerText = totalPagar;
+
+            // exibe a nota fiscal na pagina
+            document.getElementById('notaFiscal').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
