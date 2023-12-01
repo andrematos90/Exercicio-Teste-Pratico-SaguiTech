@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Calculadora de Nota Fiscal de Serviço</title>
 </head>
+
 <body>
     <div class="container-geral">
         <div class="container-calculadora">
@@ -58,16 +60,34 @@
             // calcular total a pagar
             var totalPagar = (valorServico + parseFloat(impostoCalculado)).toFixed(2);
 
-            // atualiza elementos da nota fiscal na página
-            document.getElementById('cliente').innerText = nomeCliente;
-            document.getElementById('valorServicoNota').innerText = valorServico.toFixed(2);
-            document.getElementById('aliquotaNota').innerText = aliquota;
-            document.getElementById('impostoCalculado').innerText = impostoCalculado;
-            document.getElementById('totalPagar').innerText = totalPagar;
+            //validações
 
-            // exibe a nota fiscal na pagina
-            document.getElementById('notaFiscal').style.display = 'block';
+            if (nomeCliente.trim() === '') {
+                alert('Por favor, insira o nome do cliente.');
+                return;
+            }
+
+            if (isNaN(valorServico) || valorServico <= 0) {
+                alert('Por favor, insira um valor de serviço válido.');
+                return;
+            }
+
+            if (isNaN(aliquota) || aliquota < 0) {
+                alert('Por favor, insira uma alíquota válida.');
+                return;
+            }
+
+        // atualiza elementos da nota fiscal na página
+        document.getElementById('cliente').innerText = nomeCliente;
+        document.getElementById('valorServicoNota').innerText = valorServico.toFixed(2);
+        document.getElementById('aliquotaNota').innerText = aliquota;
+        document.getElementById('impostoCalculado').innerText = impostoCalculado;
+        document.getElementById('totalPagar').innerText = totalPagar;
+
+        // exibe a nota fiscal na pagina
+        document.getElementById('notaFiscal').style.display = 'block';
         }
     </script>
 </body>
+
 </html>
