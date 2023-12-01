@@ -1,0 +1,36 @@
+.container-geral {
+  text-align: left;
+  border: 2px solid #333;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+  margin: auto; /* Centralizar o retângulo */
+}
+
+.container-geral h2 {
+  color: #333;
+}
+
+.container-geral p {
+  margin: 10px 0;
+}
+
+.container-geral strong {
+  font-weight: bold;
+}
+
+.container-geral span {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.notaFiscal h2 {
+  border-bottom: 2px solid #696969;
+  padding-bottom: 10px;
+  color: #fff;
+}
+
+#notaFiscal p{
+  margin: 10px;
+}
