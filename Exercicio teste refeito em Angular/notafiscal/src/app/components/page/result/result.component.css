@@ -1,15 +1,29 @@
-.container-geral {
-  text-align: left;
-  border: 2px solid #333;
-  padding: 20px;
-  max-width: 400px;
-  width: 100%;
-  background-color: #f8f8f8;
-  margin: auto; /* Centralizar o retângulo */
+.container-geral{
+  display: flex;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #D2691E, #363636);
+  color: #fff;
 }
 
-.container-geral h2 {
-  color: #333;
+
+.container-result {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  padding: 20px;
+  background-color: #363636;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #fff;
+  margin-right: 20px;
+
+
 }
 
 .container-geral p {
