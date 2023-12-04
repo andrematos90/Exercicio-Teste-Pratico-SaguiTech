@@ -1,11 +1,11 @@
 <div class="container-geral">
-  <div class="container-result">
+  <div class="container-result" *ngIf="notaFiscalData">
     <h2>Valores da Nota Fiscal</h2>
-  <p><strong>Cliente:</strong> <span id="cliente"></span></p>
-  <p><strong>Valor do Serviço:</strong> R$ <span id="valorServicoNota"></span></p>
-  <p><strong>Alíquota de Imposto:</strong> <span id="aliquotaNota"></span>%</p>
-  <p><strong>Imposto Calculado:</strong> R$ <span id="impostoCalculado"></span></p>
-  <p><strong>Total a Pagar:</strong> R$ <span id="totalPagar"></span></p>
+  <p><strong>Cliente:</strong> {{ notaFiscalData.cliente }}<span id="cliente"></span></p>
+  <p><strong>Valor do Serviço:</strong> R$ <span id="valorServicoNota"></span> {{ notaFiscalData.valorServico }}</p>
+  <p><strong>Alíquota de Imposto:</strong> <span id="aliquotaNota"></span> {{ notaFiscalData.aliquotaDeImposto }}%</p>
+  <p><strong>Imposto Calculado:</strong> R$ {{ notaFiscalData.impostoCalculado }}<span id="impostoCalculado"></span></p>
+  <p><strong>Total a Pagar:</strong> R$ {{ notaFiscalData.totalPagar }}<span id="totalPagar"></span></p>
   </div>
 
 </div>

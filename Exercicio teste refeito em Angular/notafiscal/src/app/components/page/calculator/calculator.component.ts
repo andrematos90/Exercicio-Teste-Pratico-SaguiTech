@@ -8,9 +8,12 @@ import { NotaFiscalInterface } from './../../../interfaces/NotaFiscalInteface';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent {
-  nomeCliente: string = '';
-  valorServico: number = 0;
-  aliquota: number = 0;
+  cliente: string =  '';
+  servico:number =  0;
+  aliquota: number= 0;
+  impostoCalculado:number =  0;
+  totalPagar:number = 0
+
 
   constructor(private notafiscalService: NotafiscalService) {}
 
@@ -18,14 +21,14 @@ export class CalculatorComponent {
 
     const notaFiscal: NotaFiscalInterface = {
       numeroNF : 0,
-      cliente: this.nomeCliente,
-      valorServico:this.valorServico,
+      cliente: this.cliente,
+      valorServico:this.servico,
       aliquotaDeImposto:this.aliquota,
       impostoCalculado:0,
-      totalPagar:0
+      totalPagar:0,
     };
 
-    // Agora você pode enviar os dados para o serviço
+    // envia os dados para o service
     this.notafiscalService.processarNotaFiscal(notaFiscal);
   }
 }

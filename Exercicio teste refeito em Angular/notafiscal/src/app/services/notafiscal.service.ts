@@ -1,5 +1,7 @@
 import { NotaFiscalInterface } from './../interfaces/NotaFiscalInteface';
 import { Injectable } from '@angular/core';
+import { DataSharingService } from './data-sharing.service';
+
 
 
 @Injectable({
@@ -7,19 +9,28 @@ import { Injectable } from '@angular/core';
 })
 export class NotafiscalService {
 
+  constructor(private dataSharingService: DataSharingService) {}
+
+
   processarNotaFiscal(notaFiscal: NotaFiscalInterface){
 
-    console.log("Ola mundo! Funfou!")
 
      // calcular imposto
-     var impostoCalculado = (notaFiscal.valorServico * (notaFiscal.aliquotaDeImposto / 100)).toFixed(2);
 
-     // calcular total a pagar
-     var totalPagar = (notaFiscal.valorServico + parseFloat(impostoCalculado)).toFixed(2)
+     const valorServico = Number(notaFiscal.valorServico)
+     var impostoCalculado =  valorServico * (notaFiscal.aliquotaDeImposto / 100);
+     console.log(typeof( notaFiscal.valorServico))
 
-     console.log(`Imposto Calculado: ${impostoCalculado}`);
-     console.log(`Cliente ${notaFiscal.cliente}`)
+     // calcula total a pagar
+     var totalPagar = valorServico + impostoCalculado;
 
-
+     this.dataSharingService.setNotaFiscalData({
+      numeroNF:notaFiscal.numeroNF,
+      cliente: notaFiscal.cliente,
+      valorServico: notaFiscal.valorServico,
+      aliquotaDeImposto: notaFiscal.aliquotaDeImposto,
+      impostoCalculado,
+      totalPagar,
+    });
   }
 }
