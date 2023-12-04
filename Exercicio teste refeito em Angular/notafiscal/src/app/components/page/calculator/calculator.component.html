@@ -8,18 +8,20 @@
           <ul>
               <li>
                   <label for="nome">Nome do Cliente:</label>
-                  <input type="text" id="nome" required>
+                  <input  [(ngModel)]="nomeCliente" name="nomeCliente" id="nome"  required>
+
               </li>
               <li>
                   <label for="valorServico">Valor do Serviço:</label>
-                  <input type="number" id="valorServico" required>
+                  <input [(ngModel)]="valorServico" name="valorServico"  id="valorServico" required>
               </li>
               <li>
                   <label for="aliquota">Alíquota de Imposto (%):</label>
-                  <input type="number" id="aliquota" required>
+                  <input [(ngModel)]="aliquota" name="aliquota"  id="aliquota" required>
+
               </li>
           </ul>
-          <a routerLink="/notafiscal" type="button" onclick="calcularNotaFiscal()">Calcular Nota Fiscal</a>
+          <a routerLink="/notafiscal" type="button" (click)="calcularNotaFiscal()">Calcular Nota Fiscal</a>
       </form>
   </div>
 

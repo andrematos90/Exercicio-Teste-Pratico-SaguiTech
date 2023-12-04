@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResultComponent } from './components/page/result/result.component';
 import { CalculatorComponent } from './components/page/calculator/calculator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import { CalculatorComponent } from './components/page/calculator/calculator.com
     HeaderComponent,
     FooterComponent,
     ResultComponent,
-    CalculatorComponent
+    CalculatorComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
